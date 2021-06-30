@@ -27,8 +27,6 @@ def get_partition_data_info(partition, folder_list, seq_len_range, overlap, samp
             poses = np.load('{}{}.npy'.format(par.pose_dir, folder))  # (n_images, 6)
             fpaths = glob.glob('{}{}/*.png'.format(par.image_dir, folder))
             fpaths.sort()
-
-
             # Get the middle section as validation set
             n_val = int((1-partition)*len(fpaths))
             st_val = int((len(fpaths)-n_val)/2)
